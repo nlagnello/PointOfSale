@@ -49,7 +49,7 @@ public class SampleDatabase implements ReceiptDataAccessStrategy {
                 break;
             }
         }
-        
+        System.out.println(customer.getCustId());
         return customer;
     }
     
