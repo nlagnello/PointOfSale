@@ -19,7 +19,6 @@ public class CashRegister {
     private int lineItemCount = 0;
     
     public CashRegister(){
-    receipt = new Receipt();
     db = new SampleDatabase();
     
 }
@@ -40,8 +39,9 @@ public class CashRegister {
     }
     
     
-    
+    //create 
     public void startNewSale(String custId){
+        receipt = new Receipt();
         customer = db.findCustomer(custId);
         lineItem = new LineItem[5];
     }
