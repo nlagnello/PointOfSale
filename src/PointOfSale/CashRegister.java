@@ -11,9 +11,18 @@ package PointOfSale;
  */
 public class CashRegister {
 
+    private SampleDatabase db;
     private Receipt receipt;
-    private Customer customer;
+    private ICustomer customer;
+    private LineItem[] lineItem;
+    private Product product;
+    private int lineItemCount = 0;
     
+    public CashRegister(){
+    receipt = new Receipt();
+    db = new SampleDatabase();
+    
+}
     public Receipt getReceipt() {
         return receipt;
     }
@@ -22,21 +31,22 @@ public class CashRegister {
         this.receipt = receipt;
     }
 
-    public Customer getCustomer() {
+    public ICustomer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(ICustomer customer) {
         this.customer = customer;
     }
     
     
     
     public void startNewSale(String custId){
-        customer.setCustId(custId);
+        customer = db.findCustomer(custId);
+        lineItem = new LineItem[5];
     }
     public void scanProduct(String prodId, int qty){
-        
+        lineItem[lineItemCount].addProduct(db.findProduct(prodId), qty);
         
     }
     public void endSale(){
