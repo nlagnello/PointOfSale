@@ -39,16 +39,21 @@ public class CashRegister {
     }
     
     
-    //create 
+    //create receipt, add customer, create lineItem Array(empty)
     public void startNewSale(String custId){
         receipt = new Receipt();
         customer = db.findCustomer(custId);
         lineItem = new LineItem[5];
     }
+    
+    //add product to lineItem array
     public void scanProduct(String prodId, int qty){
         lineItem[lineItemCount].addProduct(db.findProduct(prodId), qty);
-        
+        lineItemCount++;
     }
+    
+    //add Line items to receipt
+    //figure out discounts and savings, calculate total, print receipt
     public void endSale(){
         
     }

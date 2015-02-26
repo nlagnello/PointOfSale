@@ -12,7 +12,16 @@ package PointOfSale;
 public class LineItem {
     private Product product;
     private int qty;
-    private int listCount = 0;
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+        
 
     public LineItem(){
         
