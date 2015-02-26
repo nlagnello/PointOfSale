@@ -41,8 +41,8 @@ public class CashRegister {
     
     //create receipt, add customer, create lineItem Array(empty)
     public void startNewSale(String custId){
-        receipt = new Receipt();
         customer = db.findCustomer(custId);
+        receipt = new Receipt(customer);
         lineItem = new LineItem[5];
     }
     
