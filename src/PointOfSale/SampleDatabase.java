@@ -39,17 +39,17 @@ public class SampleDatabase implements ReceiptDataAccessStrategy {
                     + "illegal argument");
             return null;  // end method prematurely after log to console
         }
-        System.out.println("find " + custId);
+        
         ICustomer customer = null;
         for(ICustomer c : customers) {
-            System.out.println("Name " + c.getName() + "Id loop " + c.getCustId());
+            
             if(custId.equals(c.getCustId())) {
                 
                 customer = c;
                 break;
             }
         }
-        System.out.println(customer.getCustId());
+        
         return customer;
     }
     

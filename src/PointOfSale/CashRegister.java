@@ -14,8 +14,7 @@ public class CashRegister {
     private final ReceiptDataAccessStrategy db = new SampleDatabase();
     private Receipt receipt;
     private ICustomer customer;
-    private LineItem[] lineItem;
-    private Product product;
+    private LineItem[] lineItem = new LineItem[0];
     
     
     public CashRegister(){
@@ -41,9 +40,9 @@ public class CashRegister {
     //create receipt, add customer, create lineItem Array(empty)
     public void startNewSale(String custId){
         customer = db.findCustomer(custId);
-        System.out.println("Cash" +customer.getCustId());
+        
         receipt = new Receipt(customer);
-        lineItem = new LineItem[0];
+        
     }
     
     //add product to lineItem array
@@ -57,7 +56,7 @@ public class CashRegister {
         lineItem = temp;
         temp = null;
         
-        lineItem[lineItem.length-1].addProduct(db.findProduct(prodId), qty);
+        lineItem[lineItem.length-1] = new LineItem(db.findProduct(prodId), qty);
         
     }
     

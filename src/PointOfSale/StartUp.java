@@ -22,8 +22,8 @@ public class StartUp {
     CashRegister cr = new CashRegister();
     
     cr.startNewSale("100");
-    cr.scanProduct("MB101", 2);
-    cr.scanProduct("H20", 1);
+    cr.scanProduct("A101", 2);
+    cr.scanProduct("B205", 1);
     cr.endSale();
     }
 }

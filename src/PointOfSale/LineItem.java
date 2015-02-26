@@ -39,9 +39,6 @@ public class LineItem {
         this.product = product;
     }
 
-    public void addProduct(Product product, int qty) {
-        this.product = product;
-        this.qty = qty;
-    }
+    
 
 }

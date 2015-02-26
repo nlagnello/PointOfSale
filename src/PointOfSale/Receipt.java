@@ -11,7 +11,6 @@ package PointOfSale;
  */
 public class Receipt {
     private ICustomer customer;
-    private Product product;
     private String receipt = "";
     
     public Receipt(ICustomer customer){
@@ -28,7 +27,7 @@ public class Receipt {
     public void writeReceipt(LineItem[] lineItems){
         
         for(LineItem item : lineItems){
-          receipt += item.getProduct() + " " + item.getQty() + "\n";
+          receipt += item.getProduct().getName() + " " + item.getQty() + " " + item.getProduct().getPrice()+ "\n";
                   
         }
         
