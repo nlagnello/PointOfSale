@@ -16,7 +16,7 @@ public class Customer implements ICustomer{
     public Customer(){
         
     }
-    public Customer(String name, String customerId){
+    public Customer(String customerId, String name ){
         this.name = name;
         this.customerId = customerId;
     }

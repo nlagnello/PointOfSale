@@ -13,7 +13,7 @@ public interface ICustomer {
     
     
     public abstract String getCustId();
-    
+    public abstract String getName();
     
     
 }

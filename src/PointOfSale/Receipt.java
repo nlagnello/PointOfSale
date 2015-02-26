@@ -22,7 +22,7 @@ public class Receipt {
     private void startReceipt(ICustomer customer){
         receipt = "Thank you for shopping at Kohl's\n";
         receipt += "Customer Id: " + customer.getCustId() + "\n";
-        receipt += "Customer Name: " +  "\n";
+        receipt += "Customer Name: " + customer.getName() +  "\n";
     }
     
     public void writeReceipt(LineItem[] lineItems){
