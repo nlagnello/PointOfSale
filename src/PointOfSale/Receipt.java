@@ -11,14 +11,17 @@ package PointOfSale;
  */
 public class Receipt {
     private ReceiptDataAccessStrategy db;
+    private ReceiptOutputStrategy print;
     private ICustomer customer;
     private String receipt = "";
     private LineItem[] lineItem = new LineItem[0];
     
-    public Receipt(String custId, ReceiptDataAccessStrategy db){
+    
+    public Receipt(String custId, ReceiptDataAccessStrategy db, ReceiptOutputStrategy print){
         startReceipt();
         this.db = db;
         this.customer = db.findCustomer(custId);
+        this.print = print;
         addCustomer();
         
     }
@@ -41,17 +44,11 @@ public class Receipt {
         temp = null;
         
         lineItem[lineItem.length-1] = new LineItem(db.findProduct(prodId), qty);
+        receipt += lineItem[lineItem.length-1].getProduct().getName() + " " + lineItem[lineItem.length-1].getQty() + " " + lineItem[lineItem.length-1].getProduct().getPrice()+ "\n";
     }
     
     public void writeReceipt(){
-        
-        for(LineItem item : lineItem){
-          receipt += item.getProduct().getName() + " " + item.getQty() + " " + item.getProduct().getPrice()+ "\n";
-                  
-        }
-        
-        
-        System.out.print(receipt);
+        print.print(receipt);
     }
     
 }

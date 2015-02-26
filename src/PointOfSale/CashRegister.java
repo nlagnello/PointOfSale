@@ -27,8 +27,8 @@ public class CashRegister {
 
     
    
-    public void startNewSale(String custId, ReceiptDataAccessStrategy db){
-        receipt = new Receipt(custId, db);
+    public void startNewSale(String custId, ReceiptDataAccessStrategy db, ReceiptOutputStrategy print){
+        receipt = new Receipt(custId, db, print);
         
         
         
