@@ -22,14 +22,18 @@ public class Receipt {
     private void startReceipt(ICustomer customer){
         receipt = "Thank you for shopping at Kohl's\n";
         receipt += "Customer Id: " + customer.getCustId() + "\n";
-        receipt += "Customer Name: " + customer;
+        receipt += "Customer Name: " + customer + "\n";
     }
     
-    private void writeReceipt(){
+    private void writeReceipt(LineItem[] lineItems){
         
-    }
-    private void printReceipt(){
+        for(LineItem item : lineItems){
+          receipt += item.getProduct() + " " + item.getQty() + "\n";
+                  
+        }
         
+        
+        System.out.print(receipt);
     }
     
 }

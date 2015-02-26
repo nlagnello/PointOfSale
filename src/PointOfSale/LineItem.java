@@ -10,8 +10,18 @@ package PointOfSale;
  * @author nagnello
  */
 public class LineItem {
+
     private Product product;
     private int qty;
+
+    public LineItem() {
+
+    }
+
+    public LineItem(Product product, int qty) {
+        this.product = product;
+        this.qty = qty;
+    }
 
     public int getQty() {
         return qty;
@@ -21,16 +31,6 @@ public class LineItem {
         this.qty = qty;
     }
 
-        
-
-    public LineItem(){
-        
-    }
-    public LineItem(Product product, int qty){
-        this.product = product;
-        this.qty = qty;
-    }
-    
     public Product getProduct() {
         return product;
     }
@@ -38,13 +38,10 @@ public class LineItem {
     public void setProduct(Product product) {
         this.product = product;
     }
-    
-    public void addProduct(Product product, int qty){
+
+    public void addProduct(Product product, int qty) {
         this.product = product;
         this.qty = qty;
     }
-    public void removeProduct(Product product){
-        
-        
-    }
+
 }
