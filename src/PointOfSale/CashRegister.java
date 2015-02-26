@@ -10,11 +10,30 @@ package PointOfSale;
  * @author nagnello
  */
 public class CashRegister {
+
     private Receipt receipt;
+    private Customer customer;
+    
+    public Receipt getReceipt() {
+        return receipt;
+    }
+
+    public void setReceipt(Receipt receipt) {
+        this.receipt = receipt;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+    
     
     
     public void startNewSale(String custId){
-        
+        customer.setCustId(custId);
     }
     public void scanProduct(String prodId, int qty){
         

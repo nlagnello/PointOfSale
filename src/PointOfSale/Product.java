@@ -24,6 +24,7 @@ public class Product {
         this.prodID = prodID;
         this.name = name;
         this.price = price;
+        this.discountStrategy = discountStrategy;
     }
     public DiscountStrategy getDiscountStrategy() {
         return discountStrategy;
