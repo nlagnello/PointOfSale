@@ -13,7 +13,9 @@ public class Customer implements ICustomer{
     private String name;
     private String customerId;
     
-    
+    public Customer(){
+        
+    }
     public Customer(String name, String customerId){
         this.name = name;
         this.customerId = customerId;
@@ -26,6 +28,7 @@ public class Customer implements ICustomer{
         this.name = name;
     }
 
+    @Override
     public String getCustId() {
         return customerId;
     }

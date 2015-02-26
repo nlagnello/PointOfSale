@@ -11,7 +11,7 @@ package PointOfSale;
  */
 public class CashRegister {
 
-    private SampleDatabase db;
+    private final ReceiptDataAccessStrategy db = new SampleDatabase();
     private Receipt receipt;
     private ICustomer customer;
     private LineItem[] lineItem;
@@ -19,9 +19,8 @@ public class CashRegister {
     private int lineItemCount = 0;
     
     public CashRegister(){
-    db = new SampleDatabase();
     
-}
+    }
     public Receipt getReceipt() {
         return receipt;
     }
@@ -42,7 +41,6 @@ public class CashRegister {
     //create receipt, add customer, create lineItem Array(empty)
     public void startNewSale(String custId){
         customer = db.findCustomer(custId);
-        
         receipt = new Receipt(customer);
         lineItem = new LineItem[5];
     }
@@ -56,6 +54,6 @@ public class CashRegister {
     //add Line items to receipt
     //figure out discounts and savings, calculate total, print receipt
     public void endSale(){
-        
+        receipt.writeReceipt(lineItem);
     }
 }

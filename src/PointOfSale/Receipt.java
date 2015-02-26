@@ -12,7 +12,7 @@ package PointOfSale;
 public class Receipt {
     private ICustomer customer;
     private Product product;
-    private String receipt;
+    private String receipt = "";
     
     public Receipt(ICustomer customer){
         this.customer = customer;
@@ -22,10 +22,10 @@ public class Receipt {
     private void startReceipt(ICustomer customer){
         receipt = "Thank you for shopping at Kohl's\n";
         receipt += "Customer Id: " + customer.getCustId() + "\n";
-        receipt += "Customer Name: " + customer + "\n";
+        receipt += "Customer Name: " +  "\n";
     }
     
-    private void writeReceipt(LineItem[] lineItems){
+    public void writeReceipt(LineItem[] lineItems){
         
         for(LineItem item : lineItems){
           receipt += item.getProduct() + " " + item.getQty() + "\n";

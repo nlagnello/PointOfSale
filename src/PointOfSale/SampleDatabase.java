@@ -31,6 +31,7 @@ public class SampleDatabase implements ReceiptDataAccessStrategy {
      * @param custId - must not be null or empty
      * @return found Customer or null if not found or bad argument
      */
+    @Override
     public final ICustomer findCustomer(final String custId) {
         // validation is needed for method parameter
         if(custId == null || custId.length() == 0) {
@@ -55,6 +56,7 @@ public class SampleDatabase implements ReceiptDataAccessStrategy {
      * @param prodId - must not be null or empty
      * @return found Product or null if not found or bad argument
      */
+    @Override
     public final Product findProduct(final String prodId) {
         // validation is needed for method parameter
         if(prodId == null || prodId.length() == 0) {
