@@ -21,7 +21,7 @@ public class StartUp {
     //End Sale
     CashRegister cr = new CashRegister();
     
-    cr.startNewSale("100");
+    cr.startNewSale("100", new SampleDatabase());
     cr.scanProduct("A101", 2);
     cr.scanProduct("B205", 1);
     cr.endSale();
