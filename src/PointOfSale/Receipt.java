@@ -23,7 +23,7 @@ public class Receipt {
         this.customer = db.findCustomer(custId);
         this.print = print;
         addCustomer();
-        
+        addItemHeader();
     }
     
     private void startReceipt(){
@@ -35,6 +35,11 @@ public class Receipt {
         receipt += "Customer Name: " + customer.getName() +  "\n";
     }
     
+    private void addItemHeader(){
+        receipt += "Item Name\t\tQty\t\tPrice\t\tDiscount\t\tSubtotal\n"
+                +  "---------\t\t---\t\t-----\t\t--------\t\t--------\n";
+    }
+    
     public void addProduct(String prodId, int qty){
         LineItem[] temp = new LineItem[lineItem.length + 1];
         
@@ -44,11 +49,37 @@ public class Receipt {
         temp = null;
         
         lineItem[lineItem.length-1] = new LineItem(db.findProduct(prodId), qty);
-        receipt += lineItem[lineItem.length-1].getProduct().getName() + " " + lineItem[lineItem.length-1].getQty() + " " + lineItem[lineItem.length-1].getProduct().getPrice()+ "\n";
+        receipt += lineItem[lineItem.length-1].getProduct().getName() + "\t" 
+                + lineItem[lineItem.length-1].getQty() + "\t\t" 
+                + lineItem[lineItem.length-1].getProduct().getPrice()+ "\t\t"
+                + lineItem[lineItem.length-1].getProduct().getDiscountAmt(qty) + "\t\t"
+                + getLineSubTotal(lineItem[lineItem.length-1]) + "\t\t"
+                +"\n";
+    }
+    
+    private double getLineSubTotal(LineItem lineItem){
+        double sub = 0;
+                sub = (lineItem.getProduct().getPrice() * lineItem.getQty()) - lineItem.getProduct().getDiscountAmt(lineItem.getQty());
+        return sub;
+    }
+    
+    
+    
+    
+    
+    
+    private double calcTotal(){
+        double total = 0;
+        
+        return total;
+    }
+    private double calculateDiscounts(){
+        double total = 0;
+        
+        return total;
     }
     
     public void writeReceipt(){
         print.print(receipt);
     }
-    
 }
