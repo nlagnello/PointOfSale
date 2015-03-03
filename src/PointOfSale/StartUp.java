@@ -22,8 +22,13 @@ public class StartUp {
     CashRegister cr = new CashRegister();
     
     cr.startNewSale("100", new SampleDatabase(), new SystemPrintReceipt());
-    cr.scanProduct("A101", 2);
-    cr.scanProduct("B205", 1);
+    cr.scanProduct("B205", 2);
+    cr.scanProduct("A101", 1);
+    cr.endSale();
+    
+    cr.startNewSale("200", new SampleDatabase(), new SystemPrintReceipt());
+    cr.scanProduct("C222", 4);
+    cr.scanProduct("B205", 6);
     cr.endSale();
     }
 }

@@ -17,17 +17,17 @@ public class NoDiscount implements DiscountStrategy{
     }
     @Override
     public double getDiscountAmt(double price, int qty) {
-        return price * qty;
+        return discountRate;
                 }
 
     @Override
     public double getDiscountRate() {
-        return 0;
+        return discountRate;
     }
 
     @Override
     public double getDiscountedTotalAmt(double price, int qty) {
-        return price * qty;
+        return discountRate;
     }
 
     @Override
